@@ -1,4 +1,5 @@
 name: Pack Contoso_University_Core
+
 on:
   push:
     paths:
@@ -8,14 +9,14 @@ on:
 jobs:
   build:
     runs-on: windows-latest
-  steps:
-    - uses: actions/checkout@v2
-    - uses: microsoft/powerplatform-actions/pack-solution@v0
-      with:
-        solution-file: out/contoso_university_core.zip
-        solution-folder: contents
-        solution-type: Both
-    - uses: actions/upload-artifact@v2
-      with:
-        name: packed-solution
-        path: out/
+    steps:
+      - uses: actions/checkout@v2
+      - uses: microsoft/powerplatform-actions/pack-solution@v0
+        with:
+          solution-file: out/contoso_university_core.zip
+          solution-folder: contents
+          solution-type: Both
+      - uses: actions/upload-artifact@v2
+        with:
+          name: packed-solution
+          path: out/
